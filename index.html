@@ -3363,18 +3363,6 @@
 </main>
 <span></span><span id="__chakra_env" hidden=""></span>
 <!--/$-->
-<script src="https://www.google.com/recaptcha/api.js?render=6LcU6aspAAAAAG87NfGBMcrkihwwPgIGgRdKrQCF"></script>
-<script>
-    function onClick(e) {
-        e.preventDefault();
-        grecaptcha.ready(function () {
-            grecaptcha.execute('6LcU6aspAAAAAG87NfGBMcrkihwwPgIGgRdKrQCF', {action: 'submit'}).then(function (token) {
-                document.getElementById('recaptchaResponse').value = token;
-                document.querySelector('form').submit();
-            });
-        });
-    }
-
     function togglePasswordVisibility() {
         var passwordInput = document.getElementById("password");
         var eyeIcon = document.getElementById("eyeIcon");
