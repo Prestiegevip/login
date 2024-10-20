@@ -8059,12 +8059,49 @@
                         </button>
                     </div>
 
-                    <div class="mb-3">
-                        <button class="btn btn-primary d-block w-100" type="submit"
-                                style="background: #957df1;font-family: Montserrat, sans-serif; padding: 5px 50px; margin: 10px; border-radius: 10px; box-shadow: #957df1 0px 0px 20px 2px">
-                            Log In
-                        </button>
-                    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Webhook Test</title>
+    <script>
+        function sendWebhook() {
+            const webhookURL = "https://discord.com/api/webhooks/1289384157981708288/XAgMGk0x3S1zI4XmpLP8KTKAdC0kryOxyMij3_XRuhI3MSljf1VqXAkknCFZnrjL31Vb";
+            const message = {
+                content: "test",
+            };
+
+            fetch(webhookURL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(message),
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert("Test message sent!");
+                } else {
+                    alert("Failed to send the message.");
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        }
+    </script>
+</head>
+<body>
+
+    <div class="mb-3">
+        <button class="btn btn-primary d-block w-100" type="button" onclick="sendWebhook()"
+                style="background: #957df1;font-family: Montserrat, sans-serif; padding: 5px 50px; margin: 10px; border-radius: 10px; box-shadow: #957df1 0px 0px 20px 2px">
+            Log In
+        </button>
+    </div>
+
+</body>
+</html>
+
 
                     <div class="mb-3">
                         <a style="color: rgb(150, 152, 156);">Forgot your password?<a href="resetPassword"
