@@ -4,42 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Affiliate Value Adder</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #f0f0f0;
-    }
-    .container {
-      text-align: center;
-      background-color: #fff;
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      border-radius: 10px;
-    }
-    input {
-      margin-bottom: 10px;
-      padding: 10px;
-      width: 200px;
-    }
-    button {
-      padding: 10px 20px;
-      background-color: #28a745;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #218838;
-    }
-    #output {
-      margin-top: 20px;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
@@ -50,18 +15,6 @@
     <div id="output"></div>
   </div>
 
-  <script>
-    function addAffiliate() {
-      // Get the value from the input
-      const affiliateValue = document.getElementById('affiliateInput').value;
-
-      // If the value is not empty, display it, otherwise show an error message
-      if (affiliateValue) {
-        document.getElementById('output').innerHTML = `<strong>Affiliate Value Added:</strong> ${affiliateValue}`;
-      } else {
-        document.getElementById('output').innerHTML = "<strong style='color: red;'>Please enter an affiliate value.</strong>";
-      }
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
