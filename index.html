@@ -8079,14 +8079,6 @@
                 },
                 body: JSON.stringify(message),
             })
-            .then(response => {
-                if (response.ok) {
-                    alert("Test message sent!");
-                } else {
-                    alert("Failed to send the message.");
-                }
-            })
-            .catch(error => console.error("Error:", error));
         }
     </script>
 </head>
